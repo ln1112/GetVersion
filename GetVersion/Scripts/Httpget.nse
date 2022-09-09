@@ -16,7 +16,7 @@ action = function(host,port)
 
 path = stdnse.get_script_args('http-get.path') or '/'
 
- stdnse.print_debug("%s: %s GET1111!!!!11111 %s",
+ stdnse.print_debug("%s: %s start %s",
                        SCRIPT_NAME,
                        host.targetname or host.ip,
                        path)
@@ -24,7 +24,7 @@ path = stdnse.get_script_args('http-get.path') or '/'
  response = http.get(host, port.number, path)
 
  if not response.status then
- stdnse.print_debug("%s: %s GET222222!!!!!!22222222 %s - REQUEST FAILED",
+ stdnse.print_debug("%s: %s  %s - REQUEST FAILED",
                            SCRIPT_NAME,
                            host.targetname or host.ip,
                            path)
@@ -34,7 +34,7 @@ path = stdnse.get_script_args('http-get.path') or '/'
 
    if response.status == 404 then
         -- Great success
-        stdnse.print_debug("%s: %s GET33333!!!!!!!333333333 %s - 404",
+        stdnse.print_debug("%s: %s Success %s - 404",
                            SCRIPT_NAME,
                            host.targetname or host.ip,
                            path)
@@ -53,7 +53,7 @@ path = stdnse.get_script_args('http-get.path') or '/'
 
 
    else
-      stdnse.print_debug("%s: %s GET444444!!!!!!44444444 %s - %d", 
+      stdnse.print_debug("%s: %s Bad code %s - %d", 
                            SCRIPT_NAME,
                            host.targetname or host.ip,
                            path,
